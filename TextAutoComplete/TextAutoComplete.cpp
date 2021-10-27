@@ -7,9 +7,10 @@ TextAutoComplete::TextAutoComplete(QWidget *parent)
 {
     ui.setupUi(this);
     this->setWindowTitle("Generic Text Editor");
-    trie = new Trie("C:\\Users\\lenovo\\Documents\\DSA-LAB\\Trie\\words", "C:\\Users\\lenovo\\source\\repos\\TextAutoComplete\\TextAutoComplete\\commons.txt");
+    trie = new Trie("./words.txt", "./commons.txt");
     trie->loadFromFileCommonWords();
     trie->loadFromFileWords();
+    dict_size = new QLabel(QString::number(trie->size));
     main_layout = new QVBoxLayout();
     this->setLayout(main_layout);
     text_box = new QTextEdit();
@@ -17,12 +18,13 @@ TextAutoComplete::TextAutoComplete(QWidget *parent)
     suggestion1 = new QPushButton();
     suggestion2 = new QPushButton();
     suggestion3 = new QPushButton();
+    main_layout->addWidget(dict_size);
     main_layout->addWidget(suggestion1);
     main_layout->addWidget(suggestion2);
     main_layout->addWidget(suggestion3);
     
     connect(text_box, &QTextEdit::textChanged, this, &TextAutoComplete::changeSuggestion);
-    connect(suggestion1, &QPushButton::pressed, this, &TextAutoComplete::);
+    //connect(suggestion1, &QPushButton::pressed, this, &TextAutoComplete::);
 
 }
 
@@ -53,8 +55,6 @@ void TextAutoComplete::changeSuggestion(){
                 suggestion2->setText(suggested[1].c_str());
                 suggestion3->setText(suggested[2].c_str());
             }
-            //suggestion2->setText(std::get<1>(suggested).c_str());
-            //suggestion3->setText(std::get<2>(suggested).c_str());
         }
 
     }

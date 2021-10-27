@@ -48,5 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Documents\DSA-LAB\Trie\all_words" />
+    <None Include="..\..\..\..\Documents\DSA-LAB\Trie\words" />
   </ItemGroup>
 </Project>

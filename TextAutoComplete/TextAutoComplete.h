@@ -3,6 +3,7 @@
 #include <QtWidgets/QWidget>
 #include <qtextedit.h>
 #include <qpushbutton.h>
+#include <qlabel.h>
 #include "ui_TextAutoComplete.h"
 #include "TrieDictionary.h"
 
@@ -19,6 +20,7 @@ private:
     Trie* trie;
     QTextEdit* text_box;
     QLayout* main_layout;
+    QLabel* dict_size;
     QPushButton* suggestion1;
     QPushButton* suggestion2;
     QPushButton* suggestion3;
