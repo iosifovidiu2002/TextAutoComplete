@@ -7,7 +7,6 @@
 #include <tuple>
 #include <algorithm>
 
-#define NO_OF_COMPLETIONS 1
 
 class TrieNode {
 public:
@@ -72,12 +71,10 @@ public:
         TrieNode* current_node = root;
         for (char c : s) {
             if (current_node->child.count(c) == 0) {
-                //std::cout<<"false";
                 return false;
             }
             current_node = current_node->child[c];
         }
-        //std::cout<<"true";
         return true;
     }
 
