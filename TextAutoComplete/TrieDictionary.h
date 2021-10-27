@@ -12,7 +12,6 @@
 class TrieNode {
 public:
     char letter;
-    //TrieNode** children;
     std::map<char, TrieNode*> child;
     bool leaf;
     int value;
@@ -114,7 +113,7 @@ public:
             std::string word;
             while (getline(f, word)) {
                 if (!this->check(word)) {
-                    this->insert(word, 10);
+                    this->insert(word, 20);
                 }
             }
             f.close();
@@ -146,15 +145,16 @@ public:
             }
         }
 
-        if (current_node->leaf) {
-            return std::make_pair(completion, '\0');
-        }
-
         if (current_node == nullptr) {
             return std::make_pair("", '\0');
         }
         char maximalPath;
         char max = current_node->getMaximumChild(ignores);
+
+        if (current_node->leaf) {
+            return std::make_pair(completion, max);
+        }
+
         while (!current_node->leaf) {
             maximalPath = current_node->getMaximumChild(ignores);
             if (maximalPath == '\0') {

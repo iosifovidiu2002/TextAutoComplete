@@ -95,7 +95,6 @@
     <ClInclude Include="TrieDictionary.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\Documents\DSA-LAB\Trie\all_words" />
     <None Include="..\..\..\..\Documents\DSA-LAB\Trie\words" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -13,6 +13,7 @@ class TextAutoComplete : public QWidget
 
 public:
     TextAutoComplete(QWidget *parent = Q_NULLPTR);
+    void suggestionSelected(QPushButton* S);
     void changeSuggestion();
 
 private:
